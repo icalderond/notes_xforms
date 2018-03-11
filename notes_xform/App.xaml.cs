@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using notes_xform.Views;
+using Xamarin.Forms;
 
 namespace notes_xform
 {
@@ -8,7 +9,7 @@ namespace notes_xform
         {
             InitializeComponent();
 
-            MainPage = new notes_xformPage();
+            MainPage = new ListNotes();
         }
 
         protected override void OnStart()
