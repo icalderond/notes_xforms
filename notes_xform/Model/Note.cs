@@ -4,6 +4,11 @@ namespace notes_xform.Model
 {
     public class Note
     {
+        public int Consecutivo
+        {
+            get;
+            set;
+        }
         public string Title
         {
             get;

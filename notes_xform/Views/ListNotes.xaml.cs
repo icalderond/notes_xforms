@@ -11,5 +11,11 @@ namespace notes_xform.Views
         {
             InitializeComponent();
         }
+
+        void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
+        {
+            // throw new NotImplementedException();
+            var t = e.Item;
+        }
     }
 }

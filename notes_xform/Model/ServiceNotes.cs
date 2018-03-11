@@ -10,7 +10,7 @@ namespace notes_xform.Model
         public ServiceNotes()
         {
         }
-        public void getListNotes()
+        public void GetListNotes()
         {
             var listNotes = new List<Note>();
 

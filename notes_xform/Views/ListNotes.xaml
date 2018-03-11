@@ -4,9 +4,12 @@
     x:Class="notes_xform.Views.ListNotes"
     BackgroundColor="Black"
     BindingContext="{StaticResource vmListNotes}">
-	<ListView ItemsSource="{Binding ListNotes}"
-        HasUnevenRows="true" >
-        <ListView.ItemTemplate>
+	<ListView 
+        ItemsSource="{Binding ListNotes}"
+        HasUnevenRows="true" 
+        SelectedItem="{Binding NoteSelected}" 
+        ItemTapped="Handle_ItemTapped">
+       <ListView.ItemTemplate>
             <DataTemplate>
                 <TextCell 
                     Text="{Binding Title}" 
