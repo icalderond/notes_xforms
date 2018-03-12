@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using notes_xform.Model;
 using Prism.Commands;
 using Prism.Mvvm;
-using Xamarin.Forms;
 
 namespace notes_xform.ViewModels
 {

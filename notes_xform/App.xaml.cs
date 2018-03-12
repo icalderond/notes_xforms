@@ -14,7 +14,7 @@ namespace notes_xform
             InitializeComponent();
             NavigationService.NavigateAsync("ListNotes");
         }
-        public App(IPlatformInitializer initializer = null) : base(initializer) { }
+        //public App(IPlatformInitializer initializer = null) : base(initializer) { }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<ListNotes, ListNotesViewModel>("ListNotes");

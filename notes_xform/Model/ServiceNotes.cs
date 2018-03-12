@@ -7,9 +7,7 @@ namespace notes_xform.Model
     public class ServiceNotes
     {
         public event EventHandler<GenericEventArgs<List<Note>>> GetListNotes_Completed;
-        public ServiceNotes()
-        {
-        }
+
         public void GetListNotes()
         {
             var listNotes = new List<Note>();
