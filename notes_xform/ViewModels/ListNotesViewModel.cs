@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using notes_xform.Model;
+using Prism.Commands;
+using Prism.Mvvm;
+using Xamarin.Forms;
 
 namespace notes_xform.ViewModels
 {
-    public class ListNotesViewModel : NotificationEnabledObject
+    public class ListNotesViewModel : BindableBase
     {
         ServiceNotes serviceNotes;
         public ListNotesViewModel()
@@ -16,8 +19,16 @@ namespace notes_xform.ViewModels
                 ListNotes = new ObservableCollection<Note>(a.Result);
             };
 
+            SelectedChangedCommand = new DelegateCommand<object>(SelectedChanged);
+
             serviceNotes.GetListNotes();
         }
+
+        private void SelectedChanged(object param)
+        {
+            var u = param;
+        }
+
         private Note _NoteSelected;
         public Note NoteSelected
         {
@@ -25,7 +36,7 @@ namespace notes_xform.ViewModels
             set
             {
                 _NoteSelected = value;
-                OnPropertyChanged();
+                SetProperty(ref _NoteSelected, value);
             }
         }
         private ObservableCollection<Note> _ListNotes;
@@ -35,24 +46,9 @@ namespace notes_xform.ViewModels
             set
             {
                 _ListNotes = value;
-                OnPropertyChanged();
+                SetProperty(ref _ListNotes, value);
             }
         }
-        private ActionCommand<object> _SelectedChangedCommand;
-        public ActionCommand<object> SelectedChangedCommand
-        {
-            get
-            {
-                if (_SelectedChangedCommand == null)
-                {
-                    _SelectedChangedCommand = new ActionCommand<object>((param) =>
-                    {
-                        var u = param;
-                    });
-                }
-                return _SelectedChangedCommand;
-            }
-            set { _SelectedChangedCommand = value; OnPropertyChanged(); }
-        }
+        public DelegateCommand<object> SelectedChangedCommand { get; set; }
     }
 }

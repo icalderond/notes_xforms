@@ -9,20 +9,12 @@ namespace notes_xform
 {
     public partial class App : PrismApplication
     {
-        //public App()
-        //{
-        //    InitializeComponent();
-
-        //    MainPage = new ListNotes();
-        //}
         protected override void OnInitialized()
         {
             InitializeComponent();
             NavigationService.NavigateAsync("ListNotes");
         }
-        public App(IPlatformInitializer initializer = null) : base(initializer)
-        {
-        }
+        public App(IPlatformInitializer initializer = null) : base(initializer) { }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<ListNotes, ListNotesViewModel>("ListNotes");
