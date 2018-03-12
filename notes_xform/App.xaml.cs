@@ -1,30 +1,31 @@
-﻿using notes_xform.Views;
+﻿using notes_xform.ViewModels;
+using notes_xform.Views;
+using Prism;
+using Prism.Ioc;
+using Prism.Unity;
 using Xamarin.Forms;
 
 namespace notes_xform
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
-        public App()
+        //public App()
+        //{
+        //    InitializeComponent();
+
+        //    MainPage = new ListNotes();
+        //}
+        protected override void OnInitialized()
         {
             InitializeComponent();
-
-            MainPage = new ListNotes();
+            NavigationService.NavigateAsync("ListNotes");
         }
-
-        protected override void OnStart()
+        public App(IPlatformInitializer initializer = null) : base(initializer)
         {
-            // Handle when your app starts
         }
-
-        protected override void OnSleep()
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            // Handle when your app sleeps
-        }
-
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
+            containerRegistry.RegisterForNavigation<ListNotes, ListNotesViewModel>("ListNotes");
         }
     }
 }

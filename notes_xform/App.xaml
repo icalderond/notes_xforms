@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms" 
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:vm="clr-namespace:notes_xform.ViewModels"
     xmlns:c="clr-namespace:notes_xform.Views;assembly=notes_xform"
+    xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
     x:Class="notes_xform.App">
 	<Application.Resources>
 		<!-- Application resource dictionary -->
@@ -11,4 +12,4 @@
              <c:ItemTappedEventArgsConverter x:Key="ItemTappedConverter" />
         </ResourceDictionary>
 	</Application.Resources>
-</Application>
+</prism:PrismApplication>
