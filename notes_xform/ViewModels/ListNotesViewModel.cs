@@ -38,14 +38,14 @@ namespace notes_xform.ViewModels
                 OnPropertyChanged();
             }
         }
-        private ActionCommand<string> _SelectedChangedCommand;
-        public ActionCommand<string> SelectedChangedCommand
+        private ActionCommand<object> _SelectedChangedCommand;
+        public ActionCommand<object> SelectedChangedCommand
         {
             get
             {
                 if (_SelectedChangedCommand == null)
                 {
-                    _SelectedChangedCommand = new ActionCommand<string>((param) =>
+                    _SelectedChangedCommand = new ActionCommand<object>((param) =>
                     {
                         var u = param;
                     });

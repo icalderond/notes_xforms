@@ -16,11 +16,12 @@ namespace notes_xform.iOS
 
             // Code for starting up the Xamarin Test Cloud Agent
 #if DEBUG
-			Xamarin.Calabash.Start();
+            Xamarin.Calabash.Start();
 #endif
+            Corcav.Behaviors.Infrastructure.Init();
+
 
             LoadApplication(new App());
-
             return base.FinishedLaunching(app, options);
         }
     }

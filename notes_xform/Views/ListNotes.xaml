@@ -2,13 +2,25 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="notes_xform.Views.ListNotes"
+    xmlns:behaviors="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
     BackgroundColor="Black"
-    BindingContext="{StaticResource vmListNotes}">
+    BindingContext="{StaticResource vmListNotes}"
+    x:Name="ListNotes">
 	<ListView 
         ItemsSource="{Binding ListNotes}"
         HasUnevenRows="true" 
-        SelectedItem="{Binding NoteSelected}" 
-        ItemTapped="Handle_ItemTapped">
+        SelectedItem="{Binding NoteSelected}">
+
+        <behaviors:Interaction.Behaviors>
+            <behaviors:BehaviorCollection>
+              <behaviors:EventToCommand
+                  BindingContext="{behaviors:RelativeContext ListNotes}"
+                  EventName="ItemTapped"
+                  CommandName="SelectedChangedCommand"
+                  PassEventArgument="true"/>
+            </behaviors:BehaviorCollection>
+          </behaviors:Interaction.Behaviors>
+        
        <ListView.ItemTemplate>
             <DataTemplate>
                 <TextCell 
