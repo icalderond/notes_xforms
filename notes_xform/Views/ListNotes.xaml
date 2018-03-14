@@ -7,24 +7,29 @@
     BackgroundColor="Black"
     BindingContext="{StaticResource vmListNotes}"
     x:Name="ListNotes">
-	<ListView 
-        ItemsSource="{Binding ListNotes}"
-        HasUnevenRows="true" 
-        SelectedItem="{Binding NoteSelected}">
-        <ListView.Behaviors>
-            <b:EventToCommandBehavior
-                EventName="ItemTapped" 
-                Command="{Binding SelectedChangedCommand}"/>
-        </ListView.Behaviors>
-        
-       <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell 
-                    Text="{Binding Title}" 
-                    Detail="{Binding Content}"
-                    TextColor="Aqua"
-                    DetailColor="Blue" />
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+    <Grid>
+        <ActivityIndicator 
+            IsRunning="{Binding IsBusy}" 
+            HorizontalOptions="Center"
+            VerticalOptions="Center"/>
+    	<ListView 
+            ItemsSource="{Binding ListNotes}"
+            HasUnevenRows="true" 
+            SelectedItem="{Binding NoteSelected}">
+            <ListView.Behaviors>
+                <b:EventToCommandBehavior
+                    EventName="ItemTapped" 
+                    Command="{Binding SelectedChangedCommand}"/>
+            </ListView.Behaviors>
+           <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell 
+                        Text="{Binding Title}" 
+                        Detail="{Binding Content}"
+                        TextColor="Aqua"
+                        DetailColor="Blue" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </ContentPage>

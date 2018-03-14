@@ -33,6 +33,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailNote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -46,6 +50,10 @@
     <Compile Include="ViewModels\ListNotesViewModel.cs" />
     <Compile Include="Model\ServiceNotes.cs" />
     <Compile Include="Model\Note.cs" />
+    <Compile Include="Views\DetailNote.xaml.cs">
+      <DependentUpon>DetailNote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\DetailNoteViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

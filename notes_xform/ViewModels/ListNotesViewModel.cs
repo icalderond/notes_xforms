@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using notes_xform.Model;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -14,8 +15,6 @@ namespace notes_xform.ViewModels
         public ListNotesViewModel(INavigationService navigationService) // has to be named correctly
         {
             _navigationService = navigationService;
-            //public ListNotesViewModel()
-            //{
             serviceNotes = new ServiceNotes();
 
             serviceNotes.GetListNotes_Completed += (s, a) => ListNotes = new ObservableCollection<Note>(a.Result);
@@ -28,7 +27,10 @@ namespace notes_xform.ViewModels
 
         private void SelectedChanged(object param)
         {
-            _navigationService.NavigateAsync("");
+            //using both Uri parameters and NavigationParameters
+            var navParameters = new NavigationParameters();
+            navParameters.Add("consecutivo", NoteSelected.Consecutivo);
+            _navigationService.NavigateAsync(new Uri("DetailNote", UriKind.Relative), navParameters);
         }
 
         private Note _NoteSelected;
@@ -50,6 +52,12 @@ namespace notes_xform.ViewModels
                 _ListNotes = value;
                 SetProperty(ref _ListNotes, value);
             }
+        }
+        private bool _IsBusy = true;
+        public bool IsBusy
+        {
+            get { return _IsBusy; }
+            set { _IsBusy = value; SetProperty(ref _IsBusy, value); }
         }
         public DelegateCommand<object> SelectedChangedCommand { get; set; }
     }

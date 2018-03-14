@@ -18,6 +18,7 @@ namespace notes_xform
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<ListNotes, ListNotesViewModel>("ListNotes");
+            containerRegistry.RegisterForNavigation<DetailNote, DetailNoteViewModel>("DetailNote");
         }
     }
 }
