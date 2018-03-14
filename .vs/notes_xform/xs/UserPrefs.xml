@@ -1,0 +1,21 @@
+﻿<Properties StartupConfiguration="{E8301309-9C8E-4232-8CCF-8A48640EA8F7}|Default">
+  <MonoDevelop.Ide.ItemProperties.notes__xform.Droid PreferredExecutionTarget="Android.5e52e08e" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="notes_xforms Status">
+    <Files>
+      <File FileName="notes_xform/ViewModels/ListNotesViewModel.cs" Line="36" Column="10" />
+      <File FileName="notes_xform/App.xaml.cs" Line="16" Column="1" />
+      <File FileName="notes_xform/Views/ListNotes.xaml" Line="8" Column="50" />
+      <File FileName="iOS/Main.cs" Line="21" Column="1" />
+      <File FileName="notes_xform/Model/Note.cs" Line="1" Column="1" />
+      <File FileName="Source Not Available" />
+      <File FileName="notes_xforms Status" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.notes__xform.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.64A10707-5C53-4285-A5A1-60A019A4DF2D" />
+</Properties>
