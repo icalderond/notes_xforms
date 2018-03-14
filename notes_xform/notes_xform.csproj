@@ -46,7 +46,6 @@
     <Compile Include="ViewModels\ListNotesViewModel.cs" />
     <Compile Include="Model\ServiceNotes.cs" />
     <Compile Include="Model\Note.cs" />
-    <Compile Include="Views\ItemTappedEventArgsConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
