@@ -41,7 +41,8 @@
                 WidthRequest="50" HeightRequest="50"  
                 VerticalOptions="End" 
                 Image="ic_add_white.png" 
-                ButtonColor="#03A9F4"/>
+                ButtonColor="#03A9F4"
+                Command="{Binding CreateNoteCommand}"/>
         </StackLayout>
     </Grid>
 </ContentPage>

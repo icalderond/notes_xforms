@@ -20,12 +20,19 @@ namespace notes_xform.ViewModels
             serviceNotes.GetListNotes_Completed += (s, a) => Notes = new ObservableCollection<Note>(a.Result);
 
             SelectedChangedCommand = new DelegateCommand<object>(SelectedChanged);
+            CreateNoteCommand = new DelegateCommand<string>(NavigateToDetailNote);
 
             serviceNotes.GetListNotes();
         }
+
+        private void NavigateToDetailNote(string obj)
+        {
+            _navigationService.NavigateAsync("DetailNote");
+        }
+
         public ListNotesViewModel()
         {
-            var t = serviceNotes;
+
         }
 
         private void SelectedChanged(object param)
@@ -63,5 +70,6 @@ namespace notes_xform.ViewModels
             set { _IsBusy = value; SetProperty(ref _IsBusy, value); }
         }
         public DelegateCommand<object> SelectedChangedCommand { get; set; }
+        public DelegateCommand<string> CreateNoteCommand { get; set; }
     }
 }
