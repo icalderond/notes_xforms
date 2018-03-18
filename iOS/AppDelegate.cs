@@ -18,7 +18,7 @@ namespace notes_xform.iOS
 #if DEBUG
             Xamarin.Calabash.Start();
 #endif
-            Corcav.Behaviors.Infrastructure.Init();
+            //Corcav.Behaviors.Infrastructure.Init();
 
 
             LoadApplication(new App());

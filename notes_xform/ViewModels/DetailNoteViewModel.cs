@@ -18,7 +18,6 @@ namespace notes_xform.ViewModels
         public void OnNavigatedTo(NavigationParameters parameters)
         {
             var _contact = Convert.ToString(parameters["consecutivo"]);
-            var f = _contact;
         }
 
         public void OnNavigatingTo(NavigationParameters parameters)

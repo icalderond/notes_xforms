@@ -1,9 +1,11 @@
 ﻿using System.Collections.ObjectModel;
+using SQLite.Net.Attributes;
 
 namespace notes_xform.Model
 {
     public class Note
     {
+        [PrimaryKey, AutoIncrement]
         public int Consecutivo
         {
             get;
