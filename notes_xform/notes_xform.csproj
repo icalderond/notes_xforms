@@ -94,9 +94,13 @@
     <Reference Include="SQLite.Net">
       <HintPath>..\packages\SQLite.Net-PCL.3.1.1\lib\portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1\SQLite.Net.dll</HintPath>
     </Reference>
+    <Reference Include="SuaveControls.FloatingActionButton">
+      <HintPath>..\packages\SuaveControls.FloatingActionButton.2018.1.5\lib\portable45-net45+win8+wpa81\SuaveControls.FloatingActionButton.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="ic_add_white.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

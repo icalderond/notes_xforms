@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="notes_xform.Views.ListNotes"
-    xmlns:behaviors="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
     xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+     xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
     BackgroundColor="Black"
     BindingContext="{StaticResource vmListNotes}"
     x:Name="ListNotes">
@@ -31,5 +31,17 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <StackLayout BackgroundColor="Transparent"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="EndAndExpand"
+            Padding="0,0,40,40">
+            <controls:FloatingActionButton 
+                x:Name="FAB" 
+                HorizontalOptions="End" 
+                WidthRequest="50" HeightRequest="50"  
+                VerticalOptions="End" 
+                Image="ic_add_white.png" 
+                ButtonColor="#03A9F4"/>
+        </StackLayout>
     </Grid>
 </ContentPage>

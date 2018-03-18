@@ -19,8 +19,8 @@ namespace notes_xform.iOS
             Xamarin.Calabash.Start();
 #endif
             //Corcav.Behaviors.Infrastructure.Init();
-
-
+            //FloatingActionButtonRenderer.InitRenderer();
+            SuaveControls.FloatingActionButton.iOS.Renderers.FloatingActionButtonRenderer.InitRenderer();
             LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }
