@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using SQLite.Net.Attributes;
 
 namespace notes_xform.Model
@@ -21,10 +21,10 @@ namespace notes_xform.Model
             get;
             set;
         }
-        public ObservableCollection<string> Labels
-        {
-            get;
-            set;
-        }
+        //public List<string> Labels
+        //{
+        //    get;
+        //    set;
+        //}
     }
 }

@@ -33,8 +33,8 @@ namespace notes_xform.Model.DB
             var newNote = new Note
             {
                 Title = _title,
-                Content = _content,
-                Labels = new System.Collections.ObjectModel.ObservableCollection<string>()
+                Content = _content//,
+                //Labels = new List<string>()
             };
 
             _connection.Insert(newNote);

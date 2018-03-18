@@ -1,25 +1,37 @@
-﻿using notes_xform.ViewModels;
+﻿using System;
+using System.Threading.Tasks;
+using notes_xform.ViewModels;
 using notes_xform.Views;
-using Prism;
 using Prism.Ioc;
 using Prism.Unity;
-using Xamarin.Forms;
 
 namespace notes_xform
 {
     public partial class App : PrismApplication
     {
-        protected override async void OnInitialized()
+        protected override void OnInitialized()
         {
-            InitializeComponent();
-            await NavigationService.NavigateAsync("ListNotes");
+            try
+            {
+                TaskScheduler.UnobservedTaskException += (sender, e) =>
+                {
+                    //Logger.Log(e.Exception.ToString(), Category.Exception, Priority.High);
+                };
+                InitializeComponent();
+                NavigationService.NavigateAsync("ListNotes");
+            }
+            catch (Exception e)
+            {
+                var t = e.Message;
+                // Logger.Log(e.Exception.ToString(), Category.Exception, Priority.High);
+            }
         }
         //public App(IPlatformInitializer initializer = null) : base(initializer) { }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<ListNotes>();//("ListNotes");
-            containerRegistry.RegisterForNavigation<DetailNote>();//("DetailNote");
+            containerRegistry.RegisterForNavigation<ListNotes, ListNotesViewModel>("ListNotes");
+            containerRegistry.RegisterForNavigation<DetailNote, DetailNoteViewModel>("DetailNote");
+
         }
     }
 }

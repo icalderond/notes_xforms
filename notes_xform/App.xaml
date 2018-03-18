@@ -8,6 +8,7 @@
 		<!-- Application resource dictionary -->
         <ResourceDictionary>
             <vm:ListNotesViewModel x:Key="vmListNotes"/>
+            
         </ResourceDictionary>
 	</Application.Resources>
 </prism:PrismApplication>

@@ -17,13 +17,16 @@ namespace notes_xform.ViewModels
             _navigationService = navigationService;
             serviceNotes = new ServiceNotes();
 
-            serviceNotes.GetListNotes_Completed += (s, a) => ListNotes = new ObservableCollection<Note>(a.Result);
+            serviceNotes.GetListNotes_Completed += (s, a) => Notes = new ObservableCollection<Note>(a.Result);
 
             SelectedChangedCommand = new DelegateCommand<object>(SelectedChanged);
 
             serviceNotes.GetListNotes();
         }
-        public ListNotesViewModel() { }
+        public ListNotesViewModel()
+        {
+            var t = serviceNotes;
+        }
 
         private void SelectedChanged(object param)
         {
@@ -43,14 +46,14 @@ namespace notes_xform.ViewModels
                 SetProperty(ref _NoteSelected, value);
             }
         }
-        private ObservableCollection<Note> _ListNotes;
-        public ObservableCollection<Note> ListNotes
+        private ObservableCollection<Note> _Notes;
+        public ObservableCollection<Note> Notes
         {
-            get { return _ListNotes; }
+            get { return _Notes; }
             set
             {
-                _ListNotes = value;
-                SetProperty(ref _ListNotes, value);
+                _Notes = value;
+                SetProperty(ref _Notes, value);
             }
         }
         private bool _IsBusy = true;
