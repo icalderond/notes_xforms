@@ -37,7 +37,6 @@ namespace notes_xform.ViewModels
 
         private void SelectedChanged(object param)
         {
-            //using both Uri parameters and NavigationParameters
             var navParameters = new NavigationParameters();
             navParameters.Add("consecutivo", NoteSelected.Consecutivo);
             _navigationService.NavigateAsync(new Uri("DetailNote", UriKind.Relative), navParameters);

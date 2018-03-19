@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="notes_xform.Views.DetailNote">
-    
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="notes_xform.Views.DetailNote">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="40*"/>
+        </Grid.RowDefinitions>
+        <Editor
+            Grid.Row="0" 
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            FontSize="30"
+            TextColor="#0D0C1D"
+        BackgroundColor="Gray"/>
+        <Editor 
+            Grid.Row="1" 
+            TextColor="#474954"
+            BackgroundColor="Silver"/>
+    </Grid>
 </ContentPage>
