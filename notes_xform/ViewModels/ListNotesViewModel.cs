@@ -18,6 +18,15 @@ namespace notes_xform.ViewModels
             serviceNotes = new ServiceNotes();
 
             serviceNotes.GetListNotes_Completed += (s, a) => Notes = new ObservableCollection<Note>(a.Result);
+            serviceNotes.CreateNote_Completed += (s, a) =>
+            {
+
+                var navParameters = new NavigationParameters
+                {
+                    { "consecutivo", a }
+                };
+                _navigationService.NavigateAsync(new Uri("DetailNote", UriKind.Relative), navParameters);
+            };
 
             SelectedChangedCommand = new DelegateCommand<object>(SelectedChanged);
             CreateNoteCommand = new DelegateCommand<string>(NavigateToDetailNote);
@@ -27,7 +36,7 @@ namespace notes_xform.ViewModels
 
         private void NavigateToDetailNote(string obj)
         {
-            _navigationService.NavigateAsync("DetailNote");
+            serviceNotes.CreateNote("", "Esto es un contenido");
         }
 
         public ListNotesViewModel()

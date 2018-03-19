@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="notes_xform.Views.DetailNote">
-    <Grid>
+    <Grid BindingContext="{StaticResource vmDetailNote}">
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="40*"/>
@@ -13,10 +13,12 @@
             HorizontalOptions="FillAndExpand"
             FontSize="30"
             TextColor="#0D0C1D"
-        BackgroundColor="Gray"/>
+            BackgroundColor="Gray"
+            Text="{Binding Title,Mode=TwoWay}"/>
         <Editor 
             Grid.Row="1" 
             TextColor="#474954"
-            BackgroundColor="Silver"/>
+            BackgroundColor="Silver"
+            Text="{Binding Content,Mode=TwoWay}"/>
     </Grid>
 </ContentPage>

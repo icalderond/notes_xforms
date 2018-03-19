@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SQLite.Net;
 using Xamarin.Forms;
@@ -35,16 +36,18 @@ namespace notes_xform.Model.DB
         public void DeleteNote(int _consecutivo) =>
         _connection.Delete<Note>(_consecutivo);
 
-        public void AddNote(string _title, string _content)
+        public int AddNote(string _title, string _content)
         {
             var newNote = new Note
             {
                 Title = _title,
-                Content = _content//,
+                Content = _content,
+                DateChanged = DateTime.Now//,
                 //Labels = new List<string>()
             };
 
-            _connection.Insert(newNote);
+            int inserted = _connection.Insert(newNote);
+            return inserted > 0 ? newNote.Consecutivo : -1;
         }
     }
 }

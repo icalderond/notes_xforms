@@ -3,8 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="notes_xform.Views.ListNotes"
     xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
-     xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
-    BackgroundColor="Black"
+    xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
     BindingContext="{StaticResource vmListNotes}"
     x:Name="ListNotes">
     <Grid>
