@@ -2,8 +2,10 @@
 using System.Threading.Tasks;
 using notes_xform.ViewModels;
 using notes_xform.Views;
+using Prism;
 using Prism.Ioc;
 using Prism.Unity;
+using Xamarin.Forms;
 
 namespace notes_xform
 {
@@ -13,10 +15,10 @@ namespace notes_xform
         {
             try
             {
-                TaskScheduler.UnobservedTaskException += (sender, e) =>
-                {
-                    //Logger.Log(e.Exception.ToString(), Category.Exception, Priority.High);
-                };
+                //TaskScheduler.UnobservedTaskException += (sender, e) =>
+                //{
+                //    //Logger.Log(e.Exception.ToString(), Category.Exception, Priority.High);
+                //};
                 InitializeComponent();
                 NavigationService.NavigateAsync("ListNotes");
             }
@@ -29,6 +31,7 @@ namespace notes_xform
         //public App(IPlatformInitializer initializer = null) : base(initializer) { }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<ListNotes, ListNotesViewModel>("ListNotes");
             containerRegistry.RegisterForNavigation<DetailNote, DetailNoteViewModel>("DetailNote");
 

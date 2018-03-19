@@ -63,7 +63,7 @@ namespace notes_xform.ViewModels
                 SetProperty(ref _Notes, value);
             }
         }
-        private bool _IsBusy = true;
+        private bool _IsBusy;
         public bool IsBusy
         {
             get { return _IsBusy; }

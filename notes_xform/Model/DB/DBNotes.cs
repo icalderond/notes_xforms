@@ -11,8 +11,15 @@ namespace notes_xform.Model.DB
 
         public DBNotes()
         {
-            _connection = DependencyService.Get<ISQLite>().GetConnection();
-            _connection.CreateTable<Note>();
+            try
+            {
+                _connection = DependencyService.Get<ISQLite>().GetConnection();
+                _connection.CreateTable<Note>();
+            }
+            catch (System.Exception ex)
+            {
+                var message = ex.Message;
+            }
         }
 
         public IEnumerable<Note> GetNotes()

@@ -1,13 +1,14 @@
 ﻿using System;
 using System.IO;
 using notes_xform.Droid;
+using notes_xform.Model.DB;
 using SQLite.Net;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(SQLite_Android))]
 namespace notes_xform.Droid
 {
-    public class SQLite_Android
+    public class SQLite_Android : ISQLite
     {
         public SQLiteConnection GetConnection()
         {
