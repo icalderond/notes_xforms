@@ -20,7 +20,8 @@ namespace notes_xform
                 //    //Logger.Log(e.Exception.ToString(), Category.Exception, Priority.High);
                 //};
                 InitializeComponent();
-                NavigationService.NavigateAsync("ListNotes");
+                NavigationService.NavigateAsync//(new Uri("NavigationPage/ListNotes", UriKind.Absolute));//
+                ("ListNotes");
             }
             catch (Exception e)
             {
