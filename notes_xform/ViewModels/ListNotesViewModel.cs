@@ -21,18 +21,8 @@ namespace notes_xform.ViewModels
             serviceNotes.GetListNotes_Completed += (s, a) => Notes = new ObservableCollection<Note>(a.Result);
             serviceNotes.CreateNote_Completed += (s, a) =>
             {
-
-                //var navParameters = new NavigationParameters
-                //{
-                //    { "consecutivo", a.Result }
-                //};
-                //_navigationService.NavigateAsync(new Uri("DetailNote", UriKind.Relative), navParameters);
-
-
                 Application.Current.Properties["consecutivo"] = a.Result;
-                _navigationService.NavigateAsync($"DetailNote?consecutivo={a.Result}");
-
-                //"consecutivo", a.Result
+                _navigationService.NavigateAsync("DetailNote");
             };
 
             SelectedChangedCommand = new DelegateCommand<object>(SelectedChanged);
@@ -43,19 +33,12 @@ namespace notes_xform.ViewModels
 
         private void CreateNote(string obj) => serviceNotes.CreateNote();
 
-        public ListNotesViewModel()
-        {
-
-        }
+        public ListNotesViewModel() { }
 
         private void SelectedChanged(object param)
         {
-            //var navParameters = new NavigationParameters();
-            //navParameters.Add("consecutivo", NoteSelected.Consecutivo);
-            //_navigationService.NavigateAsync(new Uri("DetailNote", UriKind.Relative), navParameters);
-
             Application.Current.Properties["consecutivo"] = NoteSelected.Consecutivo;
-            _navigationService.NavigateAsync($"DetailNote?consecutivo={NoteSelected.Consecutivo}");
+            _navigationService.NavigateAsync("DetailNote");
         }
 
         private Note _NoteSelected;
@@ -63,20 +46,14 @@ namespace notes_xform.ViewModels
         {
             get { return _NoteSelected; }
             set
-            {
-                _NoteSelected = value;
-                SetProperty(ref _NoteSelected, value);
-            }
+            { _NoteSelected = value; SetProperty(ref _NoteSelected, value); }
         }
         private ObservableCollection<Note> _Notes;
         public ObservableCollection<Note> Notes
         {
             get { return _Notes; }
             set
-            {
-                _Notes = value;
-                SetProperty(ref _Notes, value);
-            }
+            { _Notes = value; SetProperty(ref _Notes, value); }
         }
         private bool _IsBusy;
         public bool IsBusy
