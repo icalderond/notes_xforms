@@ -21,6 +21,7 @@ namespace notes_xform.Model.DB
             {
                 var message = ex.Message;
             }
+            // _connection.DeleteAll<Note>();
         }
 
         public IEnumerable<Note> GetNotes()

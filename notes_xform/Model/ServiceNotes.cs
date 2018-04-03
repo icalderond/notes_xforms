@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using notes_xform.Model.DB;
 
 namespace notes_xform.Model
@@ -20,6 +21,16 @@ namespace notes_xform.Model
         public void GetListNotes()
         {
             var listNotes = new List<Note>(dbNotes.GetNotes());
+
+            if (!listNotes.Any())
+            {
+                for (int i = 0; i < 50; i++)
+                {
+                    dbNotes.AddNote($"Titulo {i}", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ");
+                }
+                listNotes = new List<Note>(dbNotes.GetNotes());
+            }
+
             GetListNotes_Completed?.Invoke(this, new GenericEventArgs<List<Note>>(listNotes));
         }
         public void CreateNote(string _Title = "", string _Content = "")

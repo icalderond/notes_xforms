@@ -3,6 +3,7 @@ using notes_xform.Model;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Xamarin.Forms;
 
 namespace notes_xform.ViewModels
 {
@@ -14,27 +15,23 @@ namespace notes_xform.ViewModels
             serviceNotes = new ServiceNotes();
             serviceNotes.GetNote_Completed += (s, a) =>
             {
-                NoteSelected = new Note();
                 NoteSelected = a.Result;
             };
-            PruebaCommand = new DelegateCommand(test);
+            var consecutivo = Convert.ToInt32(Application.Current.Properties["consecutivo"]);
+            serviceNotes.GetNote(consecutivo);
         }
 
-        private void test()
-        {
-            var y = 0;
-        }
+        //public DelegateCommand PruebaCommand { get; set; }
 
-        public DelegateCommand PruebaCommand { get; set; }
         private Note _NoteSelected;
         public Note NoteSelected
         {
             get
             {
-                if (_NoteSelected == null)
-                {
-                    _NoteSelected = new Note();
-                }
+                //if (_NoteSelected == null)
+                //{
+                //    _NoteSelected = new Note();
+                //}
                 return _NoteSelected;
             }
             set
@@ -51,13 +48,14 @@ namespace notes_xform.ViewModels
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            var _contact = Convert.ToInt32(parameters["consecutivo"]);
-            serviceNotes.GetNote(_contact);
+            //var _contact = Convert.ToInt32(parameters["consecutivo"]);
+            //serviceNotes.GetNote(_contact);
         }
 
         public void OnNavigatingTo(NavigationParameters parameters)
         {
-
+            //var _contact = Convert.ToInt32(parameters["consecutivo"]);
+            //serviceNotes.GetNote(_contact);
         }
     }
 }

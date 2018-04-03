@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True"
     x:Class="notes_xform.Views.DetailNote">
-    <Grid BindingContext="{StaticResource vmDetailNote}">
+    <Grid BindingContext="{Binding NoteSelected}">
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="40*"/>
@@ -14,11 +16,11 @@
             FontSize="30"
             TextColor="#0D0C1D"
             BackgroundColor="Gray"
-            Text="{Binding Title,Mode=TwoWay}"/>
+            Text="{Binding Title}"/>
         <Editor 
             Grid.Row="1" 
             TextColor="#474954"
             BackgroundColor="Silver"
-            Text="{Binding Content,Mode=TwoWay}"/>
+            Text="{Binding Content}"/>
     </Grid>
 </ContentPage>

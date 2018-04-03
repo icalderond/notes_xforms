@@ -4,6 +4,7 @@ using notes_xform.Model;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Xamarin.Forms;
 
 namespace notes_xform.ViewModels
 {
@@ -21,23 +22,26 @@ namespace notes_xform.ViewModels
             serviceNotes.CreateNote_Completed += (s, a) =>
             {
 
-                var navParameters = new NavigationParameters
-                {
-                    { "consecutivo", a }
-                };
-                _navigationService.NavigateAsync(new Uri("DetailNote", UriKind.Relative), navParameters);
+                //var navParameters = new NavigationParameters
+                //{
+                //    { "consecutivo", a.Result }
+                //};
+                //_navigationService.NavigateAsync(new Uri("DetailNote", UriKind.Relative), navParameters);
+
+
+                Application.Current.Properties["consecutivo"] = a.Result;
+                _navigationService.NavigateAsync($"DetailNote?consecutivo={a.Result}");
+
+                //"consecutivo", a.Result
             };
 
             SelectedChangedCommand = new DelegateCommand<object>(SelectedChanged);
-            CreateNoteCommand = new DelegateCommand<string>(NavigateToDetailNote);
+            CreateNoteCommand = new DelegateCommand<string>(CreateNote);
 
             serviceNotes.GetListNotes();
         }
 
-        private void NavigateToDetailNote(string obj)
-        {
-            serviceNotes.CreateNote("", "Esto es un contenido");
-        }
+        private void CreateNote(string obj) => serviceNotes.CreateNote();
 
         public ListNotesViewModel()
         {
@@ -46,9 +50,12 @@ namespace notes_xform.ViewModels
 
         private void SelectedChanged(object param)
         {
-            var navParameters = new NavigationParameters();
-            navParameters.Add("consecutivo", NoteSelected.Consecutivo);
-            _navigationService.NavigateAsync(new Uri("DetailNote", UriKind.Relative), navParameters);
+            //var navParameters = new NavigationParameters();
+            //navParameters.Add("consecutivo", NoteSelected.Consecutivo);
+            //_navigationService.NavigateAsync(new Uri("DetailNote", UriKind.Relative), navParameters);
+
+            Application.Current.Properties["consecutivo"] = NoteSelected.Consecutivo;
+            _navigationService.NavigateAsync($"DetailNote?consecutivo={NoteSelected.Consecutivo}");
         }
 
         private Note _NoteSelected;

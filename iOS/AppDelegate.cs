@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SuaveControls.FloatingActionButton.iOS.Renderers;
 
 using Foundation;
 using UIKit;
@@ -20,7 +21,7 @@ namespace notes_xform.iOS
 #endif
             //Corcav.Behaviors.Infrastructure.Init();
             //FloatingActionButtonRenderer.InitRenderer();
-            SuaveControls.FloatingActionButton.iOS.Renderers.FloatingActionButtonRenderer.InitRenderer();
+            FloatingActionButtonRenderer.InitRenderer();
             LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }
