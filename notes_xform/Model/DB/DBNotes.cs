@@ -50,5 +50,10 @@ namespace notes_xform.Model.DB
             int inserted = _connection.Insert(newNote);
             return inserted > 0 ? newNote.Consecutivo : -1;
         }
+        public int EditNote(Note _noteToEdit)
+        {
+            int inserted = _connection.Update(_noteToEdit);
+            return inserted;
+        }
     }
 }

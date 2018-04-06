@@ -8,8 +8,13 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Name="ListNotes">
     <Grid>
-        <ActivityIndicator IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center" />
-        <ListView ItemsSource="{Binding Notes}" HasUnevenRows="true" SelectedItem="{Binding NoteSelected}">
+<!--        <ActivityIndicator IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center" />-->
+        <ListView ItemsSource="{Binding Notes}" 
+                  HasUnevenRows="true" 
+                  SelectedItem="{Binding NoteSelected}"
+                  IsPullToRefreshEnabled="true"
+                  RefreshCommand="{Binding RefreshList}"
+                  IsRefreshing="{Binding IsRefreshing}">
             <ListView.Behaviors>
                 <b:EventToCommandBehavior EventName="ItemTapped" Command="{Binding SelectedChangedCommand}" />
             </ListView.Behaviors>

@@ -43,5 +43,9 @@ namespace notes_xform.Model
             var note = dbNotes.GetNote(_consecutivo);
             GetNote_Completed?.Invoke(this, new GenericEventArgs<Note>(note));
         }
+        public void UpdateNote(Note _noteUpdated)
+        {
+            var note = dbNotes.EditNote(_noteUpdated);
+        }
     }
 }

@@ -11,10 +11,8 @@ namespace notes_xform.ViewModels
         public DetailNoteViewModel()
         {
             serviceNotes = new ServiceNotes();
-            serviceNotes.GetNote_Completed += (s, a) =>
-            {
-                NoteSelected = a.Result;
-            };
+            serviceNotes.GetNote_Completed += (s, a) => NoteSelected = a.Result;
+
             var consecutivo = Convert.ToInt32(Application.Current.Properties["consecutivo"]);
             serviceNotes.GetNote(consecutivo);
         }
@@ -22,16 +20,13 @@ namespace notes_xform.ViewModels
         private Note _NoteSelected;
         public Note NoteSelected
         {
-            get
-            {
-                return _NoteSelected;
-            }
+            get => _NoteSelected;
             set
             {
                 _NoteSelected = value;
                 SetProperty(ref _NoteSelected, value);
+                serviceNotes.UpdateNote(value);
             }
         }
-
     }
 }

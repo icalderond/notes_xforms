@@ -18,7 +18,11 @@ namespace notes_xform.ViewModels
             _navigationService = navigationService;
             serviceNotes = new ServiceNotes();
 
-            serviceNotes.GetListNotes_Completed += (s, a) => Notes = new ObservableCollection<Note>(a.Result);
+            serviceNotes.GetListNotes_Completed += (s, a) =>
+            {
+                Notes = new ObservableCollection<Note>(a.Result);
+                IsRefreshing = false;
+            };
             serviceNotes.CreateNote_Completed += (s, a) =>
             {
                 Application.Current.Properties["consecutivo"] = a.Result;
@@ -27,7 +31,14 @@ namespace notes_xform.ViewModels
 
             SelectedChangedCommand = new DelegateCommand<object>(SelectedChanged);
             CreateNoteCommand = new DelegateCommand<string>(CreateNote);
+            RefreshList = new DelegateCommand<string>(RefreshListNotes);
 
+            serviceNotes.GetListNotes();
+        }
+
+        private void RefreshListNotes(string obj)
+        {
+            IsRefreshing = true;
             serviceNotes.GetListNotes();
         }
 
@@ -61,7 +72,19 @@ namespace notes_xform.ViewModels
             get { return _IsBusy; }
             set { _IsBusy = value; SetProperty(ref _IsBusy, value); }
         }
+        private bool _IsRefreshing;
+        public bool IsRefreshing
+        {
+            get { return _IsRefreshing; }
+            set
+            {
+                _IsRefreshing = value;
+                SetProperty(ref _IsRefreshing, value);
+            }
+        }
+
         public DelegateCommand<object> SelectedChangedCommand { get; set; }
         public DelegateCommand<string> CreateNoteCommand { get; set; }
+        public DelegateCommand<string> RefreshList { get; set; }
     }
 }
