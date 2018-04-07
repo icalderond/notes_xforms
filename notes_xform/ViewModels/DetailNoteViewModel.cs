@@ -1,20 +1,18 @@
 ﻿using System;
 using notes_xform.Model;
 using Prism.Mvvm;
+using Prism.Navigation;
 using Xamarin.Forms;
 
 namespace notes_xform.ViewModels
 {
-    public class DetailNoteViewModel : BindableBase
+    public class DetailNoteViewModel : BindableBase, INavigationAware
     {
         ServiceNotes serviceNotes;
         public DetailNoteViewModel()
         {
             serviceNotes = new ServiceNotes();
             serviceNotes.GetNote_Completed += (s, a) => NoteSelected = a.Result;
-
-            var consecutivo = Convert.ToInt32(Application.Current.Properties["consecutivo"]);
-            serviceNotes.GetNote(consecutivo);
         }
 
         private Note _NoteSelected;
@@ -23,10 +21,23 @@ namespace notes_xform.ViewModels
             get => _NoteSelected;
             set
             {
-                _NoteSelected = value;
                 SetProperty(ref _NoteSelected, value);
                 serviceNotes.UpdateNote(value);
             }
+        }
+
+        public void OnNavigatedFrom(NavigationParameters parameters)
+        {
+        }
+
+        public void OnNavigatedTo(NavigationParameters parameters)
+        {
+        }
+
+        public void OnNavigatingTo(NavigationParameters parameters)
+        {
+            var consecutivo = Convert.ToInt32(parameters["consecutivo"]);
+            serviceNotes.GetNote(consecutivo);
         }
     }
 }

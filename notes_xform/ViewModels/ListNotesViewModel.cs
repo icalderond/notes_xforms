@@ -25,8 +25,8 @@ namespace notes_xform.ViewModels
             };
             serviceNotes.CreateNote_Completed += (s, a) =>
             {
-                Application.Current.Properties["consecutivo"] = a.Result;
-                _navigationService.NavigateAsync("DetailNote");
+                var consecutivo = a.Result;
+                _navigationService.NavigateAsync($"DetailNote?consecutivo={consecutivo}");
             };
 
             SelectedChangedCommand = new DelegateCommand<object>(SelectedChanged);
@@ -48,39 +48,32 @@ namespace notes_xform.ViewModels
 
         private void SelectedChanged(object param)
         {
-            Application.Current.Properties["consecutivo"] = NoteSelected.Consecutivo;
-            _navigationService.NavigateAsync("DetailNote");
+            _navigationService.NavigateAsync($"DetailNote?consecutivo={NoteSelected.Consecutivo}");
         }
 
         private Note _NoteSelected;
         public Note NoteSelected
         {
-            get { return _NoteSelected; }
-            set
-            { _NoteSelected = value; SetProperty(ref _NoteSelected, value); }
+            get => _NoteSelected;
+            set => SetProperty(ref _NoteSelected, value);
         }
         private ObservableCollection<Note> _Notes;
         public ObservableCollection<Note> Notes
         {
-            get { return _Notes; }
-            set
-            { _Notes = value; SetProperty(ref _Notes, value); }
+            get => _Notes;
+            set => SetProperty(ref _Notes, value);
         }
         private bool _IsBusy;
         public bool IsBusy
         {
-            get { return _IsBusy; }
-            set { _IsBusy = value; SetProperty(ref _IsBusy, value); }
+            get => _IsBusy;
+            set => SetProperty(ref _IsBusy, value);
         }
         private bool _IsRefreshing;
         public bool IsRefreshing
         {
-            get { return _IsRefreshing; }
-            set
-            {
-                _IsRefreshing = value;
-                SetProperty(ref _IsRefreshing, value);
-            }
+            get => _IsRefreshing;
+            set => SetProperty(ref _IsRefreshing, value);
         }
 
         public DelegateCommand<object> SelectedChangedCommand { get; set; }

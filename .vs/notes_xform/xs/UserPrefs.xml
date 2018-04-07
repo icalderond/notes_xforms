@@ -1,23 +1,15 @@
-﻿<Properties StartupConfiguration="{E8301309-9C8E-4232-8CCF-8A48640EA8F7}|Default">
+﻿<Properties StartupConfiguration="{BCD7E78A-84F2-44A1-ADF4-994DCEB0AE62}|Default">
   <MonoDevelop.Ide.ItemProperties.notes__xform.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
   <MonoDevelop.Ide.Workbench ActiveDocument="notes_xforms Status">
     <Files>
-      <File FileName="notes_xform/Model/ServiceNotes.cs" Line="51" Column="2" />
-      <File FileName="notes_xform/ViewModels/DetailNoteViewModel.cs" Line="25" Column="13" />
-      <File FileName="notes_xform/Model/DB/DBNotes.cs" Line="56" Column="1" />
-      <File FileName="notes_xform/ViewModels/ListNotesViewModel.cs" Line="24" Column="1" />
-      <File FileName="notes_xform/Views/ListNotes.xaml" Line="17" Column="57" />
       <File FileName="notes_xforms Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/icalderond/Documents/Development/Repositorios/notes_xforms/notes_xform/ViewModels/ListNotesViewModel.cs" relfile="notes_xform/ViewModels/ListNotesViewModel.cs" line="41" column="1" />
-      <Breakpoint file="/Users/icalderond/Documents/Development/Repositorios/notes_xforms/notes_xform/ViewModels/ListNotesViewModel.cs" relfile="notes_xform/ViewModels/ListNotesViewModel.cs" line="24" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.notes__xform.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.853F60FB-02D3-401A-8A0D-A21A593B0AA9" />
+  <MonoDevelop.Ide.ItemProperties.notes__xform.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.77FD70C6-B0A0-434B-BE11-11B1F6FB95AD" />
 </Properties>
